@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+
+<head>
+
+    <!-- Basic Page Needs
+================================================== -->
+    <meta charset="utf-8">
+    <title>Feels</title>
+
+    <!-- Mobile Specific Metas
+================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+    <!-- CSS
+================================================== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors/blue.css" id="colors">
+    <link rel="stylesheet" href="css/twemoji-awesome.css">
+
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+    </div>
+
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+
+        <!-- Header
+================================================== -->
+        <div id="main-header">
+            <div class="container">
+
+            </div>
+        </div>
+
+
+        <!-- Slider
+================================================== -->
+
+        <!-- Revolution Slider -->
+        <div id="rev_slider_4_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="classicslider1" style="margin:0px auto;background-color:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+
+            <!-- 5.0.7 auto mode -->
+            <div id="rev_slider_4_1" class="rev_slider home fullwidthabanner" style="display:none;" data-version="5.0.7">
+                <ul>
+
+                    <!-- Slide  -->
+                    <li data-index="rs-1" data-transition="fade" data-slotamount="default" data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+
+                        <!-- Background -->
+                        <img src="images/wp.png" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina data-kenburns="on" data-duration="5000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="100" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0">
+
+                        <!-- Video Layer -->
+                        <div class="rs-background-video-layer" data-forcerewind="on" data-volume="mute" data-ytid="T8--OggjJKQ" data-videowebm="" data-videomp4="images/TwitterEmoji.mp4" data-videorate="1.5" data-videowidth="100%" data-videoheight="100%" data-videocontrols="none" data-videoloop="loopandnoslidestop" data-forceCover="1" data-aspectratio="16:9" data-autoplay="true" data-autoplayonlyfirsttime="false" data-nextslideatend="true">
+                        </div>
+
+                        <!-- Caption-->
+                        <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-2" data-x="['center','center','center','center']" data-hoffset="['0']" data-y="['middle','middle','middle','middle']" data-voffset="['30']" data-width="['640','640', 640','420','420']" data-height="auto" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" data-transform_out="" data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-responsive_offset="on">
+
+                            <!-- Caption Content -->
+                            <div class="R_title margin-bottom-15" id="slide-2-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-20','-80']" data-fontsize="['58','52', '42','36','22']" data-lineheight="['84','78','70','55','35']" data-width="['640','640', 540','420','320']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;" data-transform_out="opacity:0;s:300;" data-start="600" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 700; ">Twitter Feels</div>
+
+                            <div class="caption-text"><i class="twa twa-2x twa-smirk"></i><i class="twa twa-2x twa-hatching-chick"></i><i class="twa twa-2x twa-cherry-blossom"></i></div>
+                            <br>
+                            <!--                            Form stuff-->
+                            <form>
+
+                                <div class="row">
+                                    <div class="col-md-6 col-md-offset-6">
+                                        <div>
+                                            <select>
+                                                <option value="U">@</option>
+                                                <option value="#">#</option>
+                                            </select>
+                                            <input id="get_name" name="tags" type="text" placeholder="@Username or #Hashtag" required="required" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" class="submit button medium" id="submit" value="Search" />
+                            </form>
+                            <script>
+                                console.log(1)
+                                $.ajax({
+                                    type: 'GET',
+                                    url: 'http://api-khe-dev.us-east-1.elasticbeanstalk.com/api/emojidata?tags=dank',
+                                    success: function (data) {
+                                        console.log("I have friends!", data); //returns all of johnbob's friends
+                                    }
+                                });
+                                //                                $('form').submit(function () {
+                                //                                    console.log(2)
+                                //                                    $.getJSON('ajax/http://api-khe-dev.us-east-1.elasticbeanstalk.com/api/emojidata?tags=' + $(this).serialize(), function (data) {
+                                //                                        $('.result').html('<p>' + data.foo + '</p>' + '<p>' + data.baz[1] + '</p>');
+                                //                                    });
+                                //                                });
+                            </script>
+                        </div>
+
+                    </li>
+                </ul>
+                <div class="tp-static-layers"></div>
+
+            </div>
+        </div>
+        <!-- Revolution Slider / End -->
+
+
+        <!-- Content
+================================================== -->
+
+        <!-- Section With Background -->
+        <section class="section-background main-color-bg white-text">
+            <div class="container">
+
+                <div class="row margin-top-10">
+
+                    <!-- Text Block -->
+                    <div class="col-md-4">
+                        <h2 class="section-title margin-bottom-40"><strong>Emojilytics for Twitter</strong></h2>
+                    </div>
+
+                    <!-- Icons -->
+                    <div class="col-md-8">
+
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <div class="icon-box-3">
+                                    <i class="ln  ln-icon-Rain-Drop"></i>
+                                    <h4>Favorite Emojis</h4>
+                                    <p>Pellentesque habitant morbi tristique senectus netus ante et malesuada fames ac turpis egestas maximus neque.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <div class="icon-box-3">
+                                    <i class="ln ln-icon-Anchor-2"></i>
+                                    <h4>Sentiment Analysis</h4>
+                                    <p>Past <a href="http://web.stanford.edu/~jesszhao/files/twitterSentiment.pdf">studies at Stanfrod</a> fonducted analysis on tweets based on emoji use.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+                                <div class="icon-box-3">
+                                    <i class="ln ln-icon-Rotation"></i>
+                                    <h4>Trends and Patterns</h4>
+                                    <ul>
+                                        <li>Canadians score highest in "American" emoji (money, raunchy, violent, sports)</li>
+                                        <li>French use 4x as many heart emoji than other languages, only language ‘smiley’ is not #1</li>
+                                        <li>Flowers and plants emoji are used 4X the average rate by Arabic speakers</li>
+                                        <li>Russian speakers use 3x romantic emoji than the average</li>
+                                        <li>Australia’s emoji use characterizes it as the land of vice &amp; indulgence, using 2x the average amount of alcohol-themed emoji, 65% more drug emoji than average and leading for both junk food and holiday emoji</li>
+                                        <li>Americans lead for a random assortment of emoji $ categories, including skulls, birthday cake, fire, tech, LGBT, meat and female oriented emoji</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 col-sm-6">
+                                <br>
+                                <br>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <!-- Section With Background / End -->
+
+        <!-- Scripts
+================================================== -->
+        <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.flexslider-min.js"></script>
+        <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="scripts/counterup.min.js"></script>
+        <script type="text/javascript" src="scripts/waypoints.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.themepunch.revolution.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.isotope.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.magnific-popup.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.twentytwenty.js"></script>
+        <script type="text/javascript" src="scripts/jquery.event.move.js"></script>
+        <script type="text/javascript" src="scripts/jquery.photogrid.js"></script>
+        <script type="text/javascript" src="scripts/jquery.tooltips.min.js"></script>
+        <script type="text/javascript" src="scripts/jquery.pricefilter.js"></script>
+        <script type="text/javascript" src="scripts/jquery.stacktable.js"></script>
+        <script type="text/javascript" src="scripts/jquery.contact-form.js"></script>
+        <script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
+        <script type="text/javascript" src="scripts/headroom.min.js"></script>
+        <script type="text/javascript" src="scripts/modernizr.custom.js"></script>
+        <script type="text/javascript" src="scripts/puregrid.js"></script>
+        <script type="text/javascript" src="scripts/flexibility.js"></script>
+        <script type="text/javascript" src="scripts/custom.js"></script>
+
+        <!-- REVOLUTION SLIDER SCRIPT -->
+        <script type="text/javascript">
+            var tpj = jQuery;
+            var revapi4;
+            tpj(document).ready(function () {
+                if (tpj("#rev_slider_4_1").revolution == undefined) {
+                    revslider_showDoubleJqueryError("#rev_slider_4_1");
+                } else {
+                    revapi4 = tpj("#rev_slider_4_1").show().revolution({
+                        sliderType: "standard",
+                        jsFileLocation: "scripts/",
+                        sliderLayout: "auto",
+                        dottedOverlay: "none",
+                        delay: 9000,
+                        navigation: {
+                            keyboardNavigation: "off",
+                            keyboard_direction: "horizontal",
+                            mouseScrollNavigation: "off",
+                            onHoverStop: "off",
+                            touch: {
+                                touchenabled: "on",
+                                swipe_threshold: 75,
+                                swipe_min_touches: 1,
+                                swipe_direction: "horizontal",
+                                drag_block_vertical: false
+                            },
+                        },
+                        viewPort: {
+                            enable: true,
+                            outof: "pause",
+                            visible_area: "80%"
+                        },
+                        responsiveLevels: [1900, 1700, 1600, 768, 480],
+                        visibilityLevels: [1400, 1200, 992, 768, 480],
+                        gridwidth: [1380, 1380, 1380, 1180, 778, 480],
+                        gridheight: [850, 800, 700, 1000, 1000],
+                        lazyType: "none",
+                        parallax: {
+                            type: "mouse",
+                            origo: "slidercenter",
+                            speed: 2000,
+                            levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 25, 47, 48, 49, 50, 51, 55],
+                            type: "mouse",
+                        },
+                        shadow: 0,
+                        spinner: "off",
+                        stopLoop: "off",
+                        stopAfterLoops: -1,
+                        stopAtSlide: -1,
+                        shuffle: "off",
+                        autoHeight: "off",
+                        hideThumbsOnMobile: "off",
+                        hideSliderAtLimit: 0,
+                        hideCaptionAtLimit: 0,
+                        hideAllCaptionAtLilmit: 0,
+                        debugMode: false,
+                        fallbacks: {
+                            simplifyAll: "off",
+                            nextSlideOnWindowFocus: "off",
+                            disableFocusListener: false,
+                        }
+                    });
+                }
+            }); /*ready*/
+        </script>
+
+
+        <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+	(Load Extensions only on Local File Systems ! 
+	The following part can be removed on Server for On Demand Loading) -->
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.actions.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.carousel.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.kenburn.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.layeranimation.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.migration.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.navigation.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.parallax.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.slideanims.min.js"></script>
+        <script type="text/javascript" src="scripts/extensions/revolution.extension.video.min.js"></script>
+
+
+    </div>
+    <!-- Wrapper / End -->
+
+</body>
+
+</html>
