@@ -76,30 +76,57 @@
                             <div class="caption-text"><i class="twa twa-2x twa-smirk"></i><i class="twa twa-2x twa-hatching-chick"></i><i class="twa twa-2x twa-cherry-blossom"></i></div>
                             <br>
                             <!--                            Form stuff-->
-                            <form>
+                            <form action="" id="target">
 
                                 <div class="row">
-                                    <div class="col-md-6 col-md-offset-6">
+                                    <div class="col-md-2 col-md-offset-5">
+                                        <select id="type">
+                                            <option value="U">@</option>
+                                            <option value="H">#</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 ">
                                         <div>
-                                            <select>
-                                                <option value="U">@</option>
-                                                <option value="#">#</option>
-                                            </select>
-                                            <input id="get_name" name="tags" type="text" placeholder="@Username or #Hashtag" required="required" />
+                                            <input id="query" type="text" placeholder="@Username or #Hashtag" required="required" />
                                         </div>
                                     </div>
                                 </div>
                                 <input type="submit" class="submit button medium" id="submit" value="Search" />
                             </form>
+                            
+                            
+                            
                             <script>
-                                console.log(1)
-                                $.ajax({
-                                    type: 'GET',
-                                    url: 'http://api-khe-dev.us-east-1.elasticbeanstalk.com/api/emojidata?tags=dank',
-                                    success: function (data) {
-                                        console.log("I have friends!", data); //returns all of johnbob's friends
-                                    }
+                                var $type = $('#type');
+                                var $query = $('#query');
+
+
+                                $('#target').submit(function () { //Submit trigger
+                                    console.log(123);
+
+                                    console.log('11');
+                                    console.log($type.val());
+                                    console.log($query.val());
+                                    console.log('22');
+
+                                    //start
+                                    console.log('http://api-khe-dev.us-east-1.elasticbeanstalk.com/api/emojidata?query=' + $type.val() + $query.val());
+
+                                    $.ajax({
+                                        type: 'GET',
+                                        url: 'http://api-khe-dev.us-east-1.elasticbeanstalk.com/api/emojidata?query=' + $type.val() + $query.val(),
+                                        success: function (data) {
+                                            console.log("I have friends!", data); //returns all of johnbob's friends
+                                        
+                                        }
+                                    });
+                                    //end
+                                    return false;
                                 });
+
+
+
+
                                 //                                $('form').submit(function () {
                                 //                                    console.log(2)
                                 //                                    $.getJSON('ajax/http://api-khe-dev.us-east-1.elasticbeanstalk.com/api/emojidata?tags=' + $(this).serialize(), function (data) {
