@@ -154,9 +154,16 @@
 
                                 var top3f = data.top3freq;
                                 var top3i = data.top3img;
+                                var osenti = data.overall_sentiment;
+                                var summy = data.summary;
 
+                                console.log(osenti);
                                 console.log('qwe', top3f, top3i);
-                                //chart
+                                console.log('pop', summy);
+                                
+                                $("#summ").text(summy);
+                                
+                                //chart 1
                                 var ctx = document.getElementById('myChart').getContext('2d');
                                 Chart.defaults.global.defaultFontColor = '#FFF';
                                 var myChart = new Chart(ctx, {
@@ -196,9 +203,44 @@
                                         }
                                     }
                                 });
+                                
+                                
+                                var ctx = document.getElementById("sentiChart");
+                                var myChart = new Chart(ctx, {
+                                    type: 'horizontalBar',
+                                    data: {
+                                        labels: [""],
+                                        datasets: [{
+                                            label: 'Emoji Sentiment',
+                                            data: [30],
+                                            backgroundColor: [ 'rgba(255, 206, 86, 1)'],
+//                                            borderColor: ['rgba(255, 206, 86, 1)'],
+//                                            borderWidth: 1
+                                        }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                
+                                                ticks: {
+                                                    beginAtZero:true
+                                                }
+                                            }],
+                                            xAxes: [{
+                                                ticks: {
+                                                    beginAtZero:true,
+                                                    min:0,
+                                                    max:100
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+                                
+                                
                                 $('html, body').animate({
-        scrollTop: $("#results").offset().top
-    }, 2000);
+                                    scrollTop: $("#results").offset().top
+                                }, 1800);
                             }
                         });
                         //end
@@ -211,15 +253,20 @@
                     <!-- Text Block -->
                     <div class="col-md-4">
                         <h2 class="section-title margin-bottom-40"><strong>News, discussion, and trends from Alexa<sup>++</sup></strong></h2>
+                        <p>See how people feel about topics and issues. Sentiment analysis based on emojis on Twitter.</p>
+                        <p>Your next-level companion at home.<br>Alexa<sup>++</sup> can even help you with <a href="" style="color:#f3e439;"><u>cooking!</u></a></p>
                     </div>
 
                     <!-- Icons -->
-                    <div class="col-md-8">
-
+                    <div class="col-md-8"><br>
+<h3 id="summ" style="align:center;"></h3><br>
                         <canvas id="myChart"></canvas>
 
                         <div class="row">
 <!--                            sentiment bar-->
+                            <br>
+                            <canvas id="sentiChart" height="35"></canvas>
+                            
                         </div>
                     </div>
 
