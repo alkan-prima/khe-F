@@ -6,7 +6,7 @@
     <!-- Basic Page Needs
 ================================================== -->
     <meta charset="utf-8">
-    <title>Feels</title>
+    <title>Feels for Alexa++</title>
 
     <!-- Mobile Specific Metas
 ================================================== -->
@@ -73,7 +73,7 @@
                         <div class="tp-caption centered custom-caption-2 tp-shape tp-shapewrapper tp-resizeme rs-parallaxlevel-0" id="slide-1-layer-2" data-x="['center','center','center','center']" data-hoffset="['0']" data-y="['middle','middle','middle','middle']" data-voffset="['30']" data-width="['640','640', 640','420','420']" data-height="auto" data-whitespace="nowrap" data-transform_idle="o:1;" data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" data-transform_out="" data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="1000" data-responsive_offset="on">
 
                             <!-- Caption Content -->
-                            <div class="R_title margin-bottom-15" id="slide-2-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-20','-80']" data-fontsize="['58','52', '42','36','22']" data-lineheight="['84','78','70','55','35']" data-width="['640','640', 540','420','320']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;" data-transform_out="opacity:0;s:300;" data-start="600" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 700; ">Twitter Feels</div>
+                            <div class="R_title margin-bottom-15" id="slide-2-layer-1" data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']" data-voffset="['-40','-40','-20','-80']" data-fontsize="['58','52', '42','36','22']" data-lineheight="['84','78','70','55','35']" data-width="['640','640', 540','420','320']" data-height="none" data-whitespace="normal" data-transform_idle="o:1;" data-transform_in="y:-50px;sX:2;sY:2;opacity:0;s:1000;e:Power4.easeOut;" data-transform_out="opacity:0;s:300;" data-start="600" data-splitin="none" data-splitout="none" data-basealign="slide" data-responsive_offset="off" data-responsive="off" style="z-index: 6; color: #fff; letter-spacing: 0px; font-weight: 700; ">Feels for Alexa<sup style="fontsize:.4em;">++</sup></div>
 
                             <div class="caption-text"><i class="twa twa-2x twa-smirk"></i><i class="twa twa-2x twa-hatching-chick"></i><i class="twa twa-2x twa-cherry-blossom"></i></div>
                             <br>
@@ -81,26 +81,21 @@
                             <form action="" id="target">
 
                                 <div class="row">
-                                    <div class="col-md-2 col-md-offset-5">
+                                    <div class="col-md-2 col-md-offset-4">
                                         <select id="type">
-                                            <option value="U">@</option>
                                             <option value="H">#</option>
+                                            <option value="U">@</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 ">
                                         <div>
-                                            <input id="query" type="text" placeholder="@Username or #Hashtag" required="required" />
+                                            <input id="query" type="text" placeholder="#Hashtags or @Usernames" required="required" />
                                         </div>
                                     </div>
                                 </div>
-                                <input type="submit" class="submit button medium" id="submit" value="Search" />
+                                <input type="submit" class="submit button medium" id="submit" value="Search"/>
                             </form>
-
-
-
-
                         </div>
-
                     </li>
                 </ul>
                 <div class="tp-static-layers"></div>
@@ -120,13 +115,14 @@
                 <!--chart PLEAASE-->
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
-                    <canvas id="myChart"></canvas>
+                        
                     </div>
                 </div>
 
                 <script>
                     var $type = $('#type');
                     var $query = $('#query');
+                    var search = $query.val();
 
 
                     $('#target').submit(function () { //Submit trigger
@@ -151,108 +147,79 @@
                                 var obj = data;
                                 console.log(data.top3freq);
                                 console.log(data.top3img);
-                                if (data.success==false) {
+                                if (data.success == false) {
                                     alert(data.message);
                                 }
-                                    
+
 
                                 var top3f = data.top3freq;
                                 var top3i = data.top3img;
 
                                 console.log('qwe', top3f, top3i);
-                                
+                                //chart
                                 var ctx = document.getElementById('myChart').getContext('2d');
-                    var myChart = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: top3i,
-                            datasets: [{
-                            label: 'Frequency',
-                            data: top3f,
-                            backgroundColor: "#4AA0D5"
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
+                                Chart.defaults.global.defaultFontColor = '#FFF';
+                                var myChart = new Chart(ctx, {
+                                    type: 'bar',
+                                    data: {
+                                        labels: top3i,
+                                        datasets: [{
+                                            label: 'Frequency',
+                                            data: top3f,
+                                            backgroundColor: "#4AA0D5"
+                                            }]
+                                    },
+                                    options: {
+                                        scales: {
+                                            yAxes: [{
+                                                ticks: {
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        },
+                                        title: {
+                                            display: true,
+                                            text: 'Results'
+                                        },
+                                        legend: {
+                                            display: true,
+                                            labels: {
+                                                fontColor: '#fff'
+                                            }
+                                        },
+                                        scales: {
+                                            xAxes: [{
+                                                ticks: {
+                                                    fontSize: 36
+                                                }
+                                            }]
+                                        }
                                     }
-                                }]
-                            },
-                            legend: {
-            display: true,
-            labels: {
-                fontColor: '#fff'
-            }
-        },
-                            scales: {
-        xAxes: [{
-            ticks: {
-                fontSize: 36
-            }
-        }]
-    }
-                        }
-                                            });
+                                });
+                                $('html, body').animate({
+        scrollTop: $("#results").offset().top
+    }, 2000);
                             }
                         });
                         //end
                         return false;
                     });
-                    
-                    
                 </script>
 
-                <div class="row margin-top-10">
+                <div class="row margin-top-10" id="results">
 
                     <!-- Text Block -->
                     <div class="col-md-4">
-                        <h2 class="section-title margin-bottom-40"><strong>Emojilytics for Twitter</strong></h2>
+                        <h2 class="section-title margin-bottom-40"><strong>News, discussion, and trends from Alexa<sup>++</sup></strong></h2>
                     </div>
 
                     <!-- Icons -->
                     <div class="col-md-8">
 
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="icon-box-3">
-                                    <i class="ln  ln-icon-Rain-Drop"></i>
-                                    <h4>Favorite Emojis</h4>
-                                    <p>Pellentesque habitant morbi tristique senectus netus ante et malesuada fames ac turpis egestas maximus neque.</p>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6">
-                                <div class="icon-box-3">
-                                    <i class="ln ln-icon-Anchor-2"></i>
-                                    <h4>Sentiment Analysis</h4>
-                                    <p>Past <a href="http://web.stanford.edu/~jesszhao/files/twitterSentiment.pdf" style="color:#f3e439;">studies at Stanfrod</a> fonducted analysis on tweets based on emoji use.</p>
-                                </div>
-                            </div>
-                        </div>
+                        <canvas id="myChart"></canvas>
 
                         <div class="row">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="icon-box-3">
-                                    <i class="ln ln-icon-Rotation"></i>
-                                    <h4>Trends and Patterns</h4>
-                                    <ul>
-                                        <li>Canadians score highest in "American" emoji (money, raunchy, violent, sports)</li>
-                                        <li>French use 4x as many heart emoji than other languages, only language ‘smiley’ is not #1</li>
-                                        <li>Flowers and plants emoji are used 4X the average rate by Arabic speakers</li>
-                                        <li>Russian speakers use 3x romantic emoji than the average</li>
-                                        <li>Australia’s emoji use characterizes it as the land of vice &amp; indulgence, using 2x the average amount of alcohol-themed emoji, 65% more drug emoji than average and leading for both junk food and holiday emoji</li>
-                                        <li>Americans lead for a random assortment of emoji $ categories, including skulls, birthday cake, fire, tech, LGBT, meat and female oriented emoji</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6 col-sm-6">
-                                <br>
-                                <br>
-
-                            </div>
+<!--                            sentiment bar-->
                         </div>
                     </div>
 
