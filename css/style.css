@@ -62,6 +62,12 @@ body #main-header {
     padding: 0;
 }
 
+img.emoji {  
+  // Override any img styles to ensure Emojis are displayed inline
+  margin: 0px !important;
+  display: inline !important;
+}
+
 ul.top-bar-menu {
     margin: 0;
     padding: 8px 0;

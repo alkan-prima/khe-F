@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en"> <![endif]-->
+
+<head>
+
+    <!-- Basic Page Needs
+================================================== -->
+    <meta charset="utf-8">
+    <title>Feels</title>
+
+    <!-- Mobile Specific Metas
+================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+    <script src='/scripts/Chart.min.js'></script>
+    <!-- CSS
+================================================== -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colors/blue.css" id="colors">
+    <link rel="stylesheet" href="css/twemoji-awesome.css">
+
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+    <div class="row">
+                            <!-- bar chart canvas element -->
+                            <canvas id="income" width="600" height="400"></canvas>
+                            <script>
+                                // bar chart data
+                                var barData = {
+                                        labels: ["January", "February", "March", "April", "May", "June"],
+                                        datasets: [
+                                            {
+                                                fillColor: "#48A497",
+                                                strokeColor: "#48A4D1",
+                                                data: [456, 479, 324, 569, 702, 600]
+                    },
+                                            {
+                                                fillColor: "rgba(73,188,170,0.4)",
+                                                strokeColor: "rgba(72,174,209,0.4)",
+                                                data: [364, 504, 605, 400, 345, 320]
+                    }
+                ]
+                                    }
+                                    // get bar chart canvas
+                                var income = document.getElementById("income").getContext("2d");
+                                // draw bar chart
+                                new Chart(income).Bar(barData);
+                            </script>
+                        </div>
+</body>
+</html>
